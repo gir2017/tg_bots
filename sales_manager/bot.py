@@ -2,11 +2,15 @@ import requests
 from aiogram import Bot, Dispatcher, types
 import asyncio
 from aiogram.filters import CommandStart#, Text
-import config  
 import json
+import os
+
+TELEGRAM_API_TOKEN = os.environ["TELEGRAM_API_TOKEN"]
+NUBELA_API_KEY = os.environ["NUBELA_API_KEY"]
+COHERE_API_KEY = os.environ["COHERE_API_KEY"]
 
 # Initialize bot with token from config
-bot = Bot(token=config.TELEGRAM_API_TOKEN)
+bot = Bot(token=TELEGRAM_API_TOKEN)
 dp = Dispatcher()
 
 # Custom exceptions for specific errors
@@ -47,7 +51,7 @@ def parse_linkedin(url):
     :raises OtherLinkedinError: For other LinkedIn related errors
     """
     response = requests.get(f'https://nubela.co/proxycurl/api/linkedin/company?url={url}&resolve_numeric_id=false&use_cache=if-present',
-                            headers={'Authorization': f'Bearer {config.NUBELA_API_KEY}'})
+                            headers={'Authorization': f'Bearer {NUBELA_API_KEY}'})
     if response.status_code == 200:
         return response.json()
     
@@ -141,7 +145,7 @@ async def create_offer(message: types.Message, profile_data):
     "prompt": text})
     headers = {
     'accept': 'application/json',
-    'authorization': f'Bearer {config.COHERE_API_KEY}',
+    'authorization': f'Bearer {COHERE_API_KEY}',
     'content-type': 'application/json'
     }
 
