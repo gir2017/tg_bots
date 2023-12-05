@@ -16,7 +16,7 @@ This Telegram bot is designed to generate business proposals based on LinkedIn c
 
 1. Clone the Repository:
 - git clone https://github.com/gir2017/tg_bots.git
-- cd telegram-bot-repository
+- cd ./sales_manager/ telegram-bot-repository
 
 2. Install Dependencies:
 pip install -r requirements.txt
@@ -28,7 +28,7 @@ Create a .env file and define the following variables:
 - COHERE_API_KEY=your_cohere_api_key
 
 4. Start the Bot:
-python3 bot.py
+- python3 bot.py
 
 ### Usage
 After launching the bot, users can interact with it on Telegram by sending a /start command and following the instructions to input a LinkedIn company profile URL.
