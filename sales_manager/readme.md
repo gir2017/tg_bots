@@ -15,17 +15,17 @@ This Telegram bot is designed to generate business proposals based on LinkedIn c
 #### Follow these steps to set up the bot locally:
 
 * Clone the Repository:
--git clone https://github.com/gir2017/tg_bots.git
--cd telegram-bot-repository
+-- git clone https://github.com/gir2017/tg_bots.git
+-- cd telegram-bot-repository
 
 * Install Dependencies:
 pip install -r requirements.txt
 
 * Set Up Environment Variables:
 Create a .env file and define the following variables:
--TELEGRAM_API_TOKEN=your_telegram_bot_token
--NUBELA_API_KEY=your_nubela_api_key
--COHERE_API_KEY=your_cohere_api_key
+-- TELEGRAM_API_TOKEN=your_telegram_bot_token
+-- NUBELA_API_KEY=your_nubela_api_key
+-- COHERE_API_KEY=your_cohere_api_key
 
 * Start the Bot:
 python3 bot.py
