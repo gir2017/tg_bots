@@ -19,7 +19,7 @@ This Telegram bot is designed to generate business proposals based on LinkedIn c
 - cd ./tg_bots/sales_manager/
 
 2. Install Dependencies:
-pip install -r requirements.txt
+- pip install -r requirements.txt
 
 3. Set Up Environment Variables:
 Create a .env file and define the following variables:
