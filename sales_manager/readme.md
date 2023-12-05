@@ -6,12 +6,13 @@ This Telegram bot is designed to generate business proposals based on LinkedIn c
 
 ### Features
 
-LinkedIn URL Processing: Parses LinkedIn company profile URLs to gather necessary company information.
-AI-Generated Proposals: Uses advanced AI techniques to generate business proposals based on company data.
-Error Handling: Custom exceptions for handling specific errors like personal LinkedIn URL inputs or other LinkedIn related errors.
-Installation
+- LinkedIn URL Processing: Parses LinkedIn company profile URLs to gather necessary company information.
+- AI-Generated Proposals: Uses advanced AI techniques to generate business proposals based on company data.
+- Error Handling: Custom exceptions for handling specific errors like personal LinkedIn URL inputs or other LinkedIn related errors.
+  
+### Installation
 
-### Follow these steps to set up the bot locally:
+#### Follow these steps to set up the bot locally:
 
 * Clone the Repository:
 git clone https://github.com/gir2017/tg_bots.git
