@@ -1,6 +1,6 @@
-LinkedIn Proposal Bot for Telegram
+# LinkedIn Proposal Bot for Telegram
 
-Description
+### Description
 
 This Telegram bot is designed to generate business proposals based on LinkedIn company profiles. Users simply provide a LinkedIn company profile URL, and the bot utilizes AI to create a tailored business proposal.
 
