@@ -100,7 +100,7 @@ async def handle_voice_to_text(message: types.Message):
     mp3_filename = file_name_cut + '.mp3'
 
 
-    audio = AudioSegment.from_ogg(destination_file_path)
+    audio = AudioSegment.from_file(destination_file_path, codec="libvorbis")
     mp3_file_path = os.path.join(user_folder, mp3_filename)
     audio.export(mp3_file_path, format='mp3')
 
