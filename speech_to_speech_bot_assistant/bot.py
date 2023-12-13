@@ -72,7 +72,7 @@ async def handle_voice(message: types.Message):
             file_to_upload = FSInputFile(output_file_path)
             # Send the speech file as a voice message
             await bot.send_voice(chat_id=message.chat.id, voice=file_to_upload)
-            # os.remove(output_file_path)
+            os.remove(output_file_path)
         else:
             await message.answer("Произошла ошибка, попробуйте еще раз.")
     except Exception as e:
