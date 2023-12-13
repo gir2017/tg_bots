@@ -1,2 +1,2 @@
 [phases.setup]
-aptPkgs = ["libav-tools", "libavcodec-extra"]
+aptPkgs = ["ffmpeg", "libvorbis", "libavcodec-extra"]
