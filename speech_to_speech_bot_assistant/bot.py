@@ -88,16 +88,20 @@ async def handle_voice_to_text(message: types.Message):
     user_folder = f'./downloads/{user_id}'  # Define user-specific folder
 
     # Check if user folder exists, if not, create it
+    os.makedirs(user_folder, exist_ok=True)
     if not os.path.exists(user_folder):
-        os.makedirs(user_folder)
+        print(f'failed to create user folder {user_folder}')
 
     file_id = message.voice.file_id
     file = await bot.get_file(file_id)
     file_name = os.path.basename(file.file_path)
     destination_file_path = os.path.join(user_folder, file_name)
+    print(f'destination path: {destination_file_path}')
     await bot.download_file(file.file_path, destination = destination_file_path)
     file_name_cut = os.path.splitext(file_name)[0]
     mp3_filename = file_name_cut + '.mp3'
+
+
     audio = AudioSegment.from_file(destination_file_path)
     mp3_file_path = os.path.join(user_folder, mp3_filename)
     audio.export(mp3_file_path, format='mp3')
@@ -287,8 +291,7 @@ def create_assistant():
 # Main function to start the bot
 async def main():
     # Check if './downloads' folder exists, if not, create it
-    if not os.path.exists('./downloads'):
-        os.makedirs('./downloads')
+    os.makedirs('./downloads', exist_ok=True)
 
     global assistant_id
     assistant_id = create_assistant()
