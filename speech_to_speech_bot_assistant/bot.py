@@ -89,8 +89,6 @@ async def handle_voice_to_text(message: types.Message):
 
     # Check if user folder exists, if not, create it
     os.makedirs(user_folder, exist_ok=True)
-    if not os.path.exists(user_folder):
-        print(f'failed to create user folder {user_folder}')
 
     file_id = message.voice.file_id
     file = await bot.get_file(file_id)
@@ -102,7 +100,7 @@ async def handle_voice_to_text(message: types.Message):
     mp3_filename = file_name_cut + '.mp3'
 
 
-    audio = AudioSegment.from_file(destination_file_path)
+    audio = AudioSegment.from_ogg(destination_file_path)
     mp3_file_path = os.path.join(user_folder, mp3_filename)
     audio.export(mp3_file_path, format='mp3')
 
