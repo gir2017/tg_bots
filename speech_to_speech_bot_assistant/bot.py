@@ -66,12 +66,13 @@ async def handle_voice(message: types.Message):
         print("Failed to add message to thread.")
     try:
         output_file_path = await run_message(thread_id, assistant_id, file_name, user_folder)
+        print(message.chat.id)
         print(output_file_path)
         if output_file_path:
             file_to_upload = FSInputFile(output_file_path)
             # Send the speech file as a voice message
             await bot.send_voice(chat_id=message.chat.id, voice=file_to_upload)
-            os.remove(output_file_path)
+            # os.remove(output_file_path)
         else:
             await message.answer("Произошла ошибка, попробуйте еще раз.")
     except Exception as e:
@@ -165,6 +166,8 @@ async def run_message(thread_id, assistant_id, file_name, user_folder):
         run_id = run.id
         await message_status(run_id, thread_id)
         response_ai = get_response(thread_id)
+        print(response_ai)
+
         output_file_path = text_to_speech(response_ai, file_name, user_folder)
         return output_file_path
     except Exception as e:
@@ -254,14 +257,7 @@ def text_to_speech(response_text, file_name, user_folder):
     )
     response.stream_to_file(mp3_file_path)
 
-    # Convert MP3 to OGG
-    audio = AudioSegment.from_mp3(mp3_file_path)
-    audio.export(ogg_file_path, format='ogg')
-
-    # Optionally, remove the intermediate MP3 file
-    os.remove(mp3_file_path)
-
-    return ogg_file_path
+    return mp3_file_path
 
 # Create assistant
 def create_assistant():
